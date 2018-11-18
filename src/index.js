@@ -67,10 +67,10 @@ export class DateRangePicker extends Component {
     const keys = Object.keys(currentOptions);
 
     if (keys['startDate']) {
-      this.$picker.data('daterangepicker').setStartDate(currentOptions[key]);
+      this.$picker.data('daterangepicker').setStartDate(currentOptions['startDate']);
     }
     else if (keys['endDate']) {
-      this.$picker.data('daterangepicker').setEndDate(currentOptions[key]);
+      this.$picker.data('daterangepicker').setEndDate(currentOptions['endDate']);
     }
 
     keys.forEach(key => {
