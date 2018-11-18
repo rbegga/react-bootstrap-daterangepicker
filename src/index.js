@@ -65,12 +65,16 @@ export class DateRangePicker extends Component {
   }
   setOptionsFromProps(currentOptions) {
     const keys = Object.keys(currentOptions);
+
+    if (keys['startDate']) {
+      this.$picker.data('daterangepicker').setStartDate(currentOptions[key]);
+    }
+    else if (keys['endDate']) {
+      this.$picker.data('daterangepicker').setEndDate(currentOptions[key]);
+    }
+
     keys.forEach(key => {
-      if (key === 'startDate') {
-        this.$picker.data('daterangepicker').setStartDate(currentOptions[key]);
-      } else if (key === 'endDate') {
-        this.$picker.data('daterangepicker').setEndDate(currentOptions[key]);
-      } else {
+      if (key !== 'startDate' && key !== 'endDate') {
         this.$picker.data('daterangepicker')[key] = currentOptions[key];
       }
     });
