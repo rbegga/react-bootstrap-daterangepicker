@@ -145,12 +145,21 @@ var DateRangePicker = function (_Component) {
       var _this4 = this;
 
       var keys = Object.keys(currentOptions);
+
+      if (keys['startDate']) {
+        this.$picker.data('daterangepicker').setStartDate(currentOptions['startDate']);
+      }
+
+      if (keys['endDate']) {
+        this.$picker.data('daterangepicker').setEndDate(currentOptions['endDate']);
+      }
+
+      if (keys['locale']) {
+        this.$picker.data('daterangepicker')['locale'] = currentOptions['locale'];
+      }
+
       keys.forEach(function (key) {
-        if (key === 'startDate') {
-          _this4.$picker.data('daterangepicker').setStartDate(currentOptions[key]);
-        } else if (key === 'endDate') {
-          _this4.$picker.data('daterangepicker').setEndDate(currentOptions[key]);
-        } else {
+        if (key !== 'startDate' && key !== 'endDate' && key !== 'locale') {
           _this4.$picker.data('daterangepicker')[key] = currentOptions[key];
         }
       });
