@@ -66,15 +66,15 @@ export class DateRangePicker extends Component {
   setOptionsFromProps(currentOptions) {
     const keys = Object.keys(currentOptions);
 
-    if (keys['startDate']) {
+    if (keys.includes('startDate')) {
       this.$picker.data('daterangepicker').setStartDate(currentOptions['startDate']);
     }
     
-    if (keys['endDate']) {
+    if (keys.includes('endDate')) {
       this.$picker.data('daterangepicker').setEndDate(currentOptions['endDate']);
     }
 
-    if (keys['locale']) {
+    if (keys.includes('locale')) {
       this.$picker.data('daterangepicker')['locale'] = currentOptions['locale'];
     }
 
